@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math/rand"
 	"os"
 	"os/signal"
@@ -21,10 +22,12 @@ type Poll struct {
 
 // Map to keep track of active polls
 var activePolls = make(map[string]*Poll)
+var token = os.Getenv("DISCORD_BOT_TOKEN")
 
 func main() {
+	log.Println(token)
 	// Create a new Discord session using the provided bot token.
-	dg, err := discordgo.New("Bot " + "MTIwMjI1NzU1MDg3MjE1NDEyMw.GaG7hL.QXIQuUjyn05FQnFoxLCjC7blRx6obsMtLGP9c8")
+	dg, err := discordgo.New("Bot " + token)
 	if err != nil {
 		fmt.Println("error creating Discord session,", err)
 		return
