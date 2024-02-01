@@ -1,1 +1,3 @@
 # my-discord-bot
+
+set DISCORD_BOT_TOKEN=<YOUR_DISCORD_TOKEN>
